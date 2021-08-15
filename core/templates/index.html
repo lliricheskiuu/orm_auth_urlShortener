@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL shortener</title>
+  </head>
+  <body>
+    <h1>{{ message }}</h1>
+    <div>{{ form.errors }}</div>
+    {% if key %}<h1><a href="{% url 'url_redirect' key %}">{{ key }}</a></h1>{% endif %}
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit">
+    </form>
+  </body>
+</html>
